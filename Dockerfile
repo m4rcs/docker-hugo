@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 # Hugo Versions
-ENV HUGO_VERSION 0.7
+ENV HUGO_VERSION 0.8
 
 # Container Annotations based on https://github.com/opencontainers/image-spec/blob/master/annotations.md
 ARG IMAGE_REVISION=1
@@ -21,7 +21,7 @@ LABEL org.opencontainers.image.authors="@m4rcs" \
 # Download required files and packages, check them and install hugo into the path
 WORKDIR /tmp
 RUN apk add --no-cache ca-certificates libc6-compat libstdc++
-RUN wget -q https://github.com/gohugoio/hugo/releases/download/v0.7/hugo-0.7-linux-x64 -O /usr/bin/hugo && \
+RUN wget -q https://github.com/gohugoio/hugo/releases/download/v0.8/hugo-linux-amd64 -O /usr/bin/hugo && \
     mkdir /site
 
 # Put the source of your site into /site
