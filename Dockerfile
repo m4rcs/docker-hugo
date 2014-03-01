@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 # Hugo Versions
-ENV HUGO_VERSION 0.9
+ENV HUGO_VERSION 0.10
 
 # Container Annotations based on https://github.com/opencontainers/image-spec/blob/master/annotations.md
 ARG IMAGE_REVISION=1
@@ -22,8 +22,8 @@ LABEL org.opencontainers.image.authors="@m4rcs" \
 WORKDIR /tmp
 RUN apk add --no-cache ca-certificates libc6-compat libstdc++
 
-RUN wget -q https://github.com/gohugoio/hugo/releases/download/v0.9/hugo_0.9_linux_amd64.tar.gz && \
-    tar xfz hugo_0.9_linux_amd64.tar.gz && \
+RUN wget -q https://github.com/gohugoio/hugo/releases/download/v0.10/hugo_0.10_linux_amd64.tar.gz && \
+    tar xfz hugo_0.10_linux_amd64.tar.gz && \
     mv /tmp/hugo_*/hugo* /usr/bin/hugo && \
     rm -rf /tmp/* && \
     mkdir /site
