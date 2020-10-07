@@ -1,8 +1,8 @@
 FROM alpine:latest
 
 # Hugo Versions
-ENV HUGO_VERSION 0.76.0
-ENV HUGO_CHECKSUM a30cab097d216cc8dd0d76a93413cf01cb8d0ca32d91c62941cc371b07f55bb9
+ENV HUGO_VERSION 0.76.1
+ENV HUGO_CHECKSUM ff351cd042a5f037715b266697da0088da44f7cc1c805ce5cedfacc4a3bd9f04
 
 # Container Annotations based on https://github.com/opencontainers/image-spec/blob/master/annotations.md
 ARG IMAGE_REVISION=1
@@ -22,9 +22,9 @@ LABEL org.opencontainers.image.authors="@m4rcs" \
 # Download required files and packages, check them and install hugo into the path
 WORKDIR /tmp
 RUN apk add --no-cache ca-certificates libc6-compat libstdc++
-RUN wget -q https://github.com/gohugoio/hugo/releases/download/v0.76.0/hugo_extended_0.76.0_Linux-64bit.tar.gz && \
-    echo "${HUGO_CHECKSUM}  hugo_extended_0.76.0_Linux-64bit.tar.gz" | sha256sum -cs - && \
-    tar xfz hugo_extended_0.76.0_Linux-64bit.tar.gz && \
+RUN wget -q https://github.com/gohugoio/hugo/releases/download/v0.76.1/hugo_extended_0.76.1_Linux-64bit.tar.gz && \
+    echo "${HUGO_CHECKSUM}  hugo_extended_0.76.1_Linux-64bit.tar.gz" | sha256sum -cs - && \
+    tar xfz hugo_extended_0.76.1_Linux-64bit.tar.gz && \
     mv /tmp/hugo /usr/bin && \
     rm -rf /tmp/* && \
     mkdir /site
